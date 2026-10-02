@@ -1,0 +1,132 @@
+@font-face {
+  font-family: 'KFGQPC Hafs';
+  src: url('/fonts/UthmanicHafs1Ver18.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+:root {
+  font-family: 'DM Sans', Arial, sans-serif;
+  --reading-font: 'DM Sans', Arial, sans-serif;
+  --reading-size: 18px;
+  color: #243750;
+  background: #f5f8fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --bg: #f5f8fc;
+  --paper: #ffffff;
+  --sidebar: #edf3fa;
+  --ink: #243750;
+  --muted: #64748b;
+  --accent: #2459a6;
+  --soft-accent: #e0ecfb;
+  --line: #d9e3f0;
+  --secondary-accent: #4f7fb9;
+  --selected: #edf4fd;
+  --shadow: 0 18px 70px #163b6820;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #111c2e;
+  --paper: #17253b;
+  --sidebar: #0e192b;
+  --ink: #e2ebf8;
+  --muted: #a1b2cc;
+  --accent: #97c3ff;
+  --soft-accent: #233e62;
+  --line: #30435e;
+  --selected: #1d3453;
+  --secondary-accent: #79a9e2;
+  --shadow: 0 18px 70px #0005;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+  color: inherit;
+}
+button {
+  background: none;
+  border: 0;
+}
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+a {
+  color: inherit;
+}
+button,
+input,
+select,
+a,
+summary {
+  outline-offset: 4px;
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+}
+input {
+  min-width: 0;
+}
+button {
+  transition:
+    background 0.16s,
+    color 0.16s;
+}
+svg {
+  flex-shrink: 0;
+}
+button:enabled:hover {
+  color: var(--accent);
+}
+::selection {
+  background: #91bfff80;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #7895bc66;
+  border-radius: 10px;
+}
+.app-shell {
+  display: flex;
+  height: 100dvh;
+  min-height: 420px;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.search-highlight {
+  background: #c7dfff;
+  color: #143c73;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px #8eb9ef;
+}
+:root[data-theme='dark'] .search-highlight {
+  background: #365d8d;
+  color: #ffffff;
+  box-shadow: 0 0 0 1px #79a9e2;
+}

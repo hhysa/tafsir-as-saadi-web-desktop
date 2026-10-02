@@ -1,0 +1,18 @@
+# Dependencies and generated assets
+node_modules/
+package-lock.json
+public/
+dist/
+dist-ssr/
+dist_electron/
+out/
+release/
+build/
+coverage/
+test-results/
+playwright-report/
+.vite/
+
+# Local settings and secrets
+.env*
+*.local

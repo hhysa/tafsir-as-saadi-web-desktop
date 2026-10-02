@@ -1,0 +1,73 @@
+{
+  "name": "tefsir-es-saadi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kurani dhe tefsiri i Es-Saadi në gjuhën shqipe — lexues offline",
+  "author": "Ahsin Tech",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "format": "prettier --config .prettierrc.json --write . ../scripts/prepare-app-data.mjs",
+    "format:check": "prettier --config .prettierrc.json --check . ../scripts/prepare-app-data.mjs",
+    "prepare:data": "node ../scripts/prepare-app-data.mjs",
+    "dev": "npm run prepare:data && vite --host 127.0.0.1",
+    "build": "npm run prepare:data && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "desktop": "npm run build && electron .",
+    "dist:win": "npm run build && electron-builder --win nsis --x64",
+    "test": "node --test tests/unit/*.test.mjs",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "5.3.0",
+    "@fontsource/lora": "5.3.0",
+    "lucide-vue-next": "1.0.0",
+    "vue": "3.5.43"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@vitejs/plugin-vue": "6.0.9",
+    "electron": "44.4.5",
+    "electron-builder": "26.15.3",
+    "prettier": "3.9.9",
+    "vite": "8.3.1"
+  },
+  "build": {
+    "appId": "tech.ahsin.tefsir",
+    "productName": "Tefsir Es-Saadi",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "Tefsir-Es-Saadi-${version}-Windows-${arch}-Setup.${ext}",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Tefsir Es-Saadi",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

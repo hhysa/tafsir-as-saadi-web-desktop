@@ -1,0 +1,68 @@
+# --- Dependency Directories ---
+node_modules/
+jspm_packages/
+.pnp/
+.pnp.js
+
+# --- Build and Distribution Outputs ---
+# Vite / Vue CLI build outputs
+dist/
+dist-ssr/
+*.local
+
+# Electron builder / packager outputs
+dist_electron/
+out/
+release/
+build/
+
+# --- Logs and Runtime Files ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# --- Local Environment and Secrets ---
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.pem
+
+# --- Editor and IDE Specifics ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# --- OS Generated Files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# --- Testing and Coverage ---
+/coverage/
+.nyc_output/
+
+# --- Cypress (if used for E2E testing) ---
+/cypress/videos/
+/cypress/screenshots/
+
+# --- TypeScript and Vite Caches ---
+.eslintcache
+.stylelintcache
+.vite/
+.nuxt/

@@ -1,0 +1,216 @@
+dialog {
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: var(--shadow);
+  max-height: 85dvh;
+  max-width: calc(100vw - 32px);
+}
+dialog::backdrop {
+  background: #10233f70;
+  backdrop-filter: blur(4px);
+}
+.search-dialog {
+  width: 680px;
+}
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px 10px;
+  gap: 20px;
+}
+.dialog-header h2 {
+  font-family: Lora, serif;
+  font-size: 21px;
+  font-weight: 400;
+  margin: 0;
+}
+.global-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  margin: 16px 26px 0;
+  border-radius: 8px;
+  padding: 13px 16px;
+  color: var(--muted);
+}
+.global-search input {
+  background: none;
+  border: 0;
+  flex: 1;
+  color: var(--ink);
+  font-size: 15px;
+  outline: none;
+}
+.search-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 12px 26px 20px;
+}
+.search-results {
+  max-height: 55dvh;
+  overflow: auto;
+  border-top: 1px solid var(--line);
+  padding: 0 16px 20px;
+}
+.search-empty {
+  text-align: center;
+  padding: 35px 15px;
+  color: var(--muted);
+}
+.search-empty h3 {
+  font-family: Lora, serif;
+  font-weight: 400;
+  color: var(--ink);
+  font-size: 19px;
+}
+.search-empty p {
+  font-size: 12px;
+}
+.result-count {
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  padding: 0 13px;
+  margin-top: 20px;
+}
+.search-result {
+  width: 100%;
+  text-align: left;
+  padding: 18px 35px 18px 14px;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  border-radius: 7px;
+}
+.search-result:hover {
+  background: var(--selected);
+}
+.search-result > span {
+  font-size: 11px;
+  color: var(--accent);
+}
+.search-result b {
+  font-weight: 400;
+  margin-left: 5px;
+  color: var(--muted);
+}
+.search-result p {
+  font-family: var(--reading-font);
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 9px 0 0;
+}
+.search-result > svg {
+  position: absolute;
+  right: 8px;
+  top: 18px;
+  color: var(--muted);
+}
+.load-more {
+  display: flex;
+  margin: 18px auto 0;
+}
+.small-empty {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.settings-dialog {
+  width: 480px;
+  padding-bottom: 25px;
+}
+.settings-intro {
+  padding: 0 26px;
+  margin: 5px 0 25px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.settings-dialog > .section-label {
+  margin-left: 26px;
+}
+.theme-options {
+  display: flex;
+  gap: 10px;
+  padding: 12px 26px 20px;
+}
+.theme-options button {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  text-align: left;
+}
+.theme-options button.chosen {
+  border-color: var(--accent);
+  background: var(--selected);
+  color: var(--accent);
+}
+.theme-options button svg:last-child:not(:first-child) {
+  margin-left: auto;
+}
+.setting-row {
+  margin: 0 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 65px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+}
+.setting-row input {
+  accent-color: var(--accent);
+  width: 18px;
+  height: 18px;
+}
+.font-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.font-controls > span {
+  font-size: 12px;
+  min-width: 37px;
+  text-align: center;
+}
+.about-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 24px 26px 0;
+  padding: 18px;
+  background: var(--selected);
+  border-radius: 9px;
+}
+.about-box > svg {
+  color: var(--accent);
+}
+.about-box strong {
+  font-size: 12px;
+}
+.about-box strong span {
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 4px;
+}
+.about-box p {
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+.search-result p[lang='ar'] {
+  font-family: 'KFGQPC Hafs', serif;
+  font-size: 26px;
+  line-height: 2.2;
+}
