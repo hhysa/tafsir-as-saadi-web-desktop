@@ -1,4 +1,7 @@
 # --- Dependency Directories ---
+# Local documentation
+[Rr][Ee][Aa][Dd][Mm][Ee].[Mm][Dd]
+
 node_modules/
 jspm_packages/
 .pnp/
@@ -14,7 +17,7 @@ dist-ssr/
 dist_electron/
 out/
 release/
-build/
+# Installer icons in build/ are source assets and must be included when copying the app.
 
 # --- Logs and Runtime Files ---
 npm-debug.log*
