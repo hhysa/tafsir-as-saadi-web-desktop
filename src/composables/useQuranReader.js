@@ -4,6 +4,7 @@ import { documentNodes } from '../lib/documentLists.js'
 import { formatAyahForCopy } from '../lib/copyAyah.js'
 import { copyText } from '../services/clipboard.js'
 import { fetchContent } from '../services/content.js'
+import { formatSurahName } from '../lib/surahNames.js'
 
 export function useQuranReader() {
   const preferences = ref(readPreferences(window.localStorage))
@@ -16,7 +17,13 @@ export function useQuranReader() {
   const error = ref('')
   const notice = ref('')
   const copyingAyah = ref(null)
-  const sidebarOpen = ref(false)
+  const mobileLayout = window.matchMedia('(max-width: 720px)')
+  const sidebarOpen = ref(!mobileLayout.matches)
+  function syncSidebarLayout() {
+    sidebarOpen.value = !mobileLayout.matches
+  }
+  onMounted(() => mobileLayout.addEventListener('change', syncSidebarLayout))
+  onUnmounted(() => mobileLayout.removeEventListener('change', syncSidebarLayout))
   const reader = ref(null)
   let requestId = 0
   let noticeTimeout
@@ -126,6 +133,11 @@ export function useQuranReader() {
     loading.value = true
     try {
       manifest.value = await fetchContent('manifest')
+      manifest.value.surahs = manifest.value.surahs.map((surah) => ({
+        ...surah,
+        sourceName: surah.name,
+        name: formatSurahName(surah.name, surah.number),
+      }))
       preferences.value.bookmarks = preferences.value.bookmarks.filter((id) => {
         const [s, a] = id.split(':').map(Number)
         return a > 0 && a <= (surahs.value.find((ch) => ch.number === s)?.count || 0)
@@ -142,7 +154,7 @@ export function useQuranReader() {
   }
 
   async function openSurah(number, ayah = 1, query = '') {
-    sidebarOpen.value = false
+    if (mobileLayout.matches) sidebarOpen.value = false
     error.value = ''
     clearTimeout(readingTimeout)
     const token = ++requestId
@@ -151,7 +163,7 @@ export function useQuranReader() {
       const content = await fetchContent(number)
       if (token !== requestId) return
       searchQuery.value = query
-      chapter.value = content
+      chapter.value = { ...content, name: formatSurahName(content.name, content.number) }
       resetTafsir()
       selected.value = Math.min(Math.max(1, ayah), content.count)
       preferences.value.surah = number

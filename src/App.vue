@@ -42,7 +42,7 @@ const {
 const showSurahs = ref(window.location.hash === '#/surahs')
 async function syncPage() {
   showSurahs.value = window.location.hash === '#/surahs'
-  sidebarOpen.value = false
+  if (window.matchMedia('(max-width: 720px)').matches) sidebarOpen.value = false
   if (!showSurahs.value && chapter.value && !loading.value) await selectAyah(selected.value)
 }
 function openSurah(...args) {
@@ -97,7 +97,8 @@ onUnmounted(() => document.removeEventListener('keydown', keyboard))
       <ReaderTopbar
         :chapter-name="chapter?.name"
         :directory="showSurahs"
-        @menu="sidebarOpen = true"
+        :sidebar-open="sidebarOpen"
+        @menu="sidebarOpen = !sidebarOpen"
         @search="openSearch"
         @settings="settingsDialog.open()"
       />

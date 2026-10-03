@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { BookOpen, Search, Bookmark, X, BookMarked, Leaf, SlidersHorizontal } from 'lucide-vue-next'
-import { normalize } from '../../lib/search.js'
+import { matchesSurah } from '../../lib/surahNames.js'
 const props = defineProps({
   surahs: Array,
   saved: Array,
@@ -14,12 +14,12 @@ const emit = defineEmits(['navigate', 'search', 'bookmark'])
 const filter = ref('')
 const tab = ref('surahs')
 const visibleSurahs = computed(() =>
-  props.surahs.filter((s) => normalize(`${s.number} ${s.name}`).includes(normalize(filter.value))),
+  props.surahs.filter((surah) => matchesSurah(surah, filter.value)),
 )
 </script>
 
 <template>
-  <aside class="sidebar" :class="{ 'is-open': open }" aria-label="Suret">
+  <aside id="library-sidebar" class="sidebar" :class="{ 'is-open': open }" aria-label="Suret">
     <a class="brand" href="#" @click.prevent="emit('navigate', 1)">
       <span class="brand-icon"><BookOpen :size="25" stroke-width="1.5" /></span>
       <span

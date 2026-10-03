@@ -1,22 +1,19 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { Search, ChevronRight } from 'lucide-vue-next'
-import { normalize } from '../lib/search.js'
+import { matchesSurah } from '../lib/surahNames.js'
 const props = defineProps({ surahs: Array })
 const emit = defineEmits(['navigate'])
 const filter = ref('')
 const visibleSurahs = computed(() =>
-  props.surahs.filter((surah) =>
-    normalize(`${surah.number} ${surah.name}`).includes(normalize(filter.value)),
-  ),
+  props.surahs.filter((surah) => matchesSurah(surah, filter.value)),
 )
 </script>
 
 <template>
   <main class="surahs-page" aria-labelledby="surahs-title">
     <div class="surahs-page-inner">
-      <h1 id="surahs-title">Suret</h1>
-      <p class="surahs-intro">114 sure · Zgjidhni një sure për të filluar leximin.</p>
+      
       <label class="surahs-page-search">
         <Search :size="20" />
         <input
@@ -51,17 +48,13 @@ const visibleSurahs = computed(() =>
   flex: 1;
   min-height: 0;
   overflow: auto;
-  padding: 36px;
+  padding: 2px;
 }
 .surahs-page-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
-h1 {
-  font-size: 32px;
-  color: var(--accent);
-  margin: 0 0 12px;
-}
+
 .surahs-intro {
   color: var(--muted);
   line-height: 1.6;

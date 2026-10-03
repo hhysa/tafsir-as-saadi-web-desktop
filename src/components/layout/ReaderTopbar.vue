@@ -1,13 +1,19 @@
 <script setup>
 import { Menu, ChevronRight, Search, Settings2 } from 'lucide-vue-next'
-defineProps({ chapterName: String, directory: Boolean })
+defineProps({ chapterName: String, directory: Boolean, sidebarOpen: Boolean })
 const emit = defineEmits(['menu', 'search', 'settings'])
 </script>
 
 <template>
   <header class="topbar">
     <div class="breadcrumb">
-      <button class="icon-button menu-button" aria-label="Hap menynë" @click="emit('menu')">
+      <button
+        class="icon-button menu-button"
+        :aria-label="sidebarOpen ? 'Mbyll menynë' : 'Hap menynë'"
+        :aria-expanded="sidebarOpen"
+        aria-controls="library-sidebar"
+        @click="emit('menu')"
+      >
         <Menu :size="20" /></button
       ><a class="surahs-link" href="#/surahs" :aria-current="directory ? 'page' : undefined"
         >Suret</a

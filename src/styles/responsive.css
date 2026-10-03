@@ -15,11 +15,13 @@
   z-index: 100;
   max-width: calc(100vw - 30px);
 }
-.menu-button,
 .mobile-search,
 .close-tafsir,
 .mobile-scrim,
 .tafsir-scrim {
+  display: none;
+}
+.sidebar:not(.is-open) {
   display: none;
 }
 @media (min-width: 1600px) {
