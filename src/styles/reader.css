@@ -227,7 +227,7 @@ h1 {
   color: var(--secondary-accent);
 }
 .translation {
-  font-family: var(--reading-font);
+  font-family: 'Quicksand', sans-serif;
   font-size: calc(var(--reading-size) * var(--albanian-scale));
   line-height: 1.8;
   margin: 8px 0 21px;

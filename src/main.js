@@ -10,6 +10,8 @@ import '@fontsource/lora/latin-500.css'
 import '@fontsource/lora/latin-700.css'
 import '@fontsource/lora/latin-400-italic.css'
 import '@fontsource/lora/latin-700-italic.css'
+import '@fontsource/quicksand/latin-400.css'
+import '@fontsource/quicksand/latin-700.css'
 import './styles/index.css'
 import App from './App.vue'
 

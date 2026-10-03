@@ -76,7 +76,7 @@ defineExpose({ open: openSearch })
       <p v-else-if="searchError" class="small-empty" role="alert">{{ searchError }}</p>
       <div v-else-if="!query.trim()" class="search-empty">
         <Search :size="32" stroke-width="1" />
-        <h3>Çdo kërkim, një zbulim i ri</h3>
+        
         <p>Provoni “mëshirë”, “durim” ose numrin e një ajeti.</p>
       </div>
       <template v-else
