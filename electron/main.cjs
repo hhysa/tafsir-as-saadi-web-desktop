@@ -16,6 +16,7 @@ function createWindow() {
     minWidth: 800,
     minHeight: 600,
     title: 'Tefsir Es-Saadi',
+    icon: path.join(app.getAppPath(), 'build', 'icon.png'),
     backgroundColor: '#f5f8fc',
     autoHideMenuBar: true,
     webPreferences: {
